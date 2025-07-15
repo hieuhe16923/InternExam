@@ -166,55 +166,8 @@
     <div class="container-fluid p-0">
         <!-- Header Navigation -->
 
-        <header>
-            <nav class="navbar navbar-expand-lg bg-white border-bottom border-4 border-warning py-2">
-                <div class="container">
-                    <!-- Logo -->
-                    <a class="navbar-brand fw-bold text-warning fs-4" href="#">COMACPRO</a>
-
-                    <!-- Toggle for mobile -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Menu -->
-                    <div class="collapse navbar-collapse" id="mainNavbar">
-                        <ul class="navbar-nav mx-auto ms-3 mb-2 mb-lg-0 gap-3">
-                            <li class="nav-item">
-                                <a class="nav-link active custom-active rounded fw-bold" href="#"
-                                    aria-current="page">Bán</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" href="#">Cho thuê</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" href="#">Danh mục</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" href="#">Blogs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" href="#">FAQ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" href="#">Về chúng tôi</a>
-                            </li>
-                        </ul>
-
-                        <!-- Buttons -->
-                        <div class="d-flex align-items-center gap-2">
-                            <button class="btn btn-warning fw-semibold d-flex align-items-center px-3">
-                                <i class="bi bi-calendar-plus me-2"></i> Đăng sản phẩm
-                            </button>
-                            <button
-                                class="btn btn-warning p-2 d-flex justify-content-center align-items-center rounded">
-                                <i class="bi bi-person-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <!-- Header Component -->
+        <div id="header"></div>
         <div class="bg-warning py-4">
             <div class="container text-center">
                 <h1 class="fw-bold fs-4 mb-1">2012 MX50-4 Manitou Rough Terrain Forklift Purchase</h1>
@@ -473,14 +426,15 @@
                 </div>
             </div>
         </div>
+        <!-- Footer Component -->
+        <div id="footer"></div>
 
-        <footer class="bg-warning">
-            <div class="container py-3">
-                <img class="w-full h-[400px]" src="https://c.animaapp.com/md4lw0xofpzvxF/img/frame-427318287.png"
-                    alt="Footer banner" />
-            </div>
-        </footer>
     </div>
+    <script>
+        localStorage.setItem("isLoggedIn", "true"); //  Người dùng đã đăng nhập
+    </script>
+    <script src="components/footer.js"></script>
+    <script src="components/header.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
