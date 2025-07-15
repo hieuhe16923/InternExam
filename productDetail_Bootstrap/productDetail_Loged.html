@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Header styles */
+        .navbar-brand .text-warning {
+            color: #FFBA00 !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #2c2a29;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffa21a;
+        }
+
+        .dropdown-toggle::after {
+            vertical-align: middle;
+        }
+
+        .form-control.border-warning {
+            border-color: #ffa21a;
+        }
+
+        .btn-warning {
+            background-color: #FFBA00 !important;
+            border-color: #FFBA00 !important;
+        }
+
+        .custom-active {
+            background-color: #FFEFD5 !important;
+            /* papayawhip */
+
+        }
+
+        /* Custom styles to complement Bootstrap */
+        .bg-warning {
+            background-color: #ffc900 !important;
+        }
+
+        .btn-warning {
+            background-color: #ffa21a !important;
+            border-color: #ffa21a !important;
+        }
+
+        .text-warning {
+            color: #ffa21a !important;
+        }
+
+        .bg-warning.bg-opacity-75 {
+            background-color: rgba(255, 162, 26, 0.8) !important;
+        }
+
+        /* Thumbnail styles */
+        .thumbnail-container {
+            scrollbar-width: none;
+        }
+
+        .thumbnail-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .thumbnail.active {
+            border: 2px solid #ffa21a;
+        }
+
+        /* Card styles */
+        .card {
+            border-radius: 10px;
+            border-color: #e1dedd;
+        }
+
+        .card-header {
+            cursor: pointer;
+        }
+
+        /* Carousel customization */
+        .product-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 625.625px;
+            background-color: #f8f9fa;
+        }
+
+        .product-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 625.625px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            opacity: 0.8;
+            z-index: 10;
+        }
+
+        .carousel-control-prev {
+            left: 15px;
+        }
+
+        .carousel-control-next {
+            right: 15px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        .bi-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header Navigation -->
+
+        <header>
+            <nav class="navbar navbar-expand-lg bg-white border-bottom border-4 border-warning py-2">
+                <div class="container">
+                    <!-- Logo -->
+                    <a class="navbar-brand fw-bold text-warning fs-4" href="#">COMACPRO</a>
+
+                    <!-- Toggle for mobile -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menu -->
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="navbar-nav mx-auto ms-3 mb-2 mb-lg-0 gap-3">
+                            <li class="nav-item">
+                                <a class="nav-link active custom-active rounded fw-bold" href="#"
+                                    aria-current="page">Bán</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#">Cho thuê</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#">Danh mục</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#">Blogs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#">Về chúng tôi</a>
+                            </li>
+                        </ul>
+
+                        <!-- Buttons -->
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-warning fw-semibold d-flex align-items-center px-3">
+                                <i class="bi bi-calendar-plus me-2"></i> Đăng sản phẩm
+                            </button>
+                            <button
+                                class="btn btn-warning p-2 d-flex justify-content-center align-items-center rounded">
+                                <i class="bi bi-person-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="bg-warning py-4">
+            <div class="container text-center">
+                <h1 class="fw-bold fs-4 mb-1">2012 MX50-4 Manitou Rough Terrain Forklift Purchase</h1>
+                <div class="d-flex justify-content-center align-items-center small">
+                    <span class="text-dark me-1">Material Handling/</span>
+                    <span class="text-dark me-1">Forklift/</span>
+                    <span class="text-dark fw-bold">Rough Terrain Forklift</span>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="mb-4">
+                        <div class="product-carousel-container">
+                            <div id="productCarousel" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318424.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="product-image-container">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png"
+                                                class="product-image" alt="Product">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3 overflow-auto gap-3 thumbnail-container overflow-x-auto">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318424.png"
+                                class="thumbnail active" alt="Thumbnail" data-bs-slide-to="0">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="1">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="2">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="3">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="4">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="5">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="6">
+                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/frame-427318427.png" class="thumbnail"
+                                alt="Thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="7">
+                        </div>
+                    </div>
+                    <div class="container my-4">
+                        <!-- General Info -->
+                        <div class="card mb-3">
+                            <div class="card-header bg-white">
+                                <div class="d-flex align-items-center" data-bs-toggle="collapse" href="#generalInfo"
+                                    role="button" aria-expanded="true" aria-controls="generalInfo">
+                                    <h5 class="mb-0 fw-bold me-2">General Information</h5>
+                                    <i class="bi bi-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="collapse show" id="generalInfo">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-secondary">Equipment Id</div>
+                                        <div class="col-6 text-end">TE-0324-1433</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-secondary">Brand</div>
+                                        <div class="col-6 text-end">Hedi</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-secondary">Model</div>
+                                        <div class="col-6 text-end">CBD15J</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-secondary">Manufacture Year</div>
+                                        <div class="col-6 text-end">2022</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-secondary">Lead Time</div>
+                                        <div class="col-6 text-end">1 tuần</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Info -->
+                        <div class="card mb-3">
+                            <div class="card-header bg-white">
+                                <div class="d-flex  align-items-center" data-bs-toggle="collapse" href="#technicalInfo"
+                                    role="button" aria-expanded="true" aria-controls="technicalInfo">
+                                    <h5 class="mb-0 fw-bold me-2">Technical Information</h5>
+                                    <i class="bi bi-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="collapse show" id="technicalInfo">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-secondary">Width Across Fork</div>
+                                        <div class="col-6 text-end">685 mm</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-secondary">Working Capacity</div>
+                                        <div class="col-6 text-end">1.5 Tấn</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Insurance -->
+                        <div class="card mb-3">
+                            <div class="card-header bg-white">
+                                <div class="d-flex align-items-center" data-bs-toggle="collapse" href="#insuranceInfo"
+                                    role="button" aria-expanded="true" aria-controls="insuranceInfo">
+                                    <h5 class="mb-0 fw-bold me-2">Bảo hiểm</h5>
+                                    <i class="bi bi-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="collapse show" id="insuranceInfo">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="bg-warning bg-opacity-75 p-2 rounded">
+                                            <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/vuesax-bold-shield-tick.svg"
+                                                width="32" height="32" alt="Shield">
+                                        </div>
+                                        <p class="mb-0 fw-semibold">
+                                            Việc mua thiết bị của bạn sẽ được bảo vệ bởi chế độ bảo hành mua thiết bị
+                                            của ComacPro
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header bg-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0 fw-bold">Catalogue</h5>
+                                <button class="btn btn-warning btn-sm fw-semibold">Tải về</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h5 class="fw-bold mb-2">2021 Spider 15.75 Pro Platform Basket Spider Lift</h5>
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://c.animaapp.com/md4mm5a2n43hnZ/img/vuesax-bold-location.svg"
+                                        width="16" height="16" alt="Location">
+                                    <span class="fw-bold">Hà nội</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="fw-bold text-secondary small">Tình trạng</span>
+                                    <span class="fw-bold small">Đã qua sử dụng</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-bold text-secondary small">Thời gian bàn giao</span>
+                                    <span class="fw-bold small">Sẵn sàng</span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="mb-3">
+                                <div class="d-flex align-items-end">
+                                    <span class="fw-bold text-warning fs-4">2.500.000.000</span>
+                                    <span class="fw-bold ms-1">VNĐ</span>
+                                </div>
+                            </div>
+
+                            <p class="small fw-bold text-secondary mb-4">
+                                Bằng cách gửi yêu cầu, tin nhắn của bạn sẽ được chuyển tiếp nhanh chóng đến ComacPro.
+                                Thông thường, bạn sẽ
+                                nhận được phản hồi từ chúng tôi trong vòng 24 giờ làm việc. Hãy nhớ truy cập trang web
+                                và kiểm tra hộp thư
+                                đến của bạn để biết thông tin cập nhật.
+                            </p>
+
+                            <button class="btn btn-warning w-100 fw-bold">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-light py-5">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-3 mb-3 mb-md-0 text-center">
+                        <img src="https://c.animaapp.com/md4lw0xofpzvxF/img/link---ic-6-png.png" alt="Partner"
+                            class="img-fluid" style="max-height: 40px;">
+                    </div>
+                    <div class="col-md-3 mb-3 mb-md-0 text-center">
+                        <img src="https://c.animaapp.com/md4lw0xofpzvxF/img/link---ic-6-png-1.png" alt="Partner"
+                            class="img-fluid" style="max-height: 40px;">
+                    </div>
+                    <div class="col-md-3 mb-3 mb-md-0 text-center">
+                        <img src="https://c.animaapp.com/md4lw0xofpzvxF/img/link---ic-5-png.png" alt="Partner"
+                            class="img-fluid" style="max-height: 40px;">
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="https://c.animaapp.com/md4lw0xofpzvxF/img/link---tech-png.png" alt="Partner"
+                            class="img-fluid" style="max-height: 40px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-warning">
+            <div class="container py-3">
+                <img class="w-full h-[400px]" src="https://c.animaapp.com/md4lw0xofpzvxF/img/frame-427318287.png"
+                    alt="Footer banner" />
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Toggle icon trong collapse (ví dụ: chevron xoay)
+            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(toggle => {
+                toggle.addEventListener('click', function () {
+                    const icon = this.querySelector('.bi-chevron-down');
+                    if (icon) icon.classList.toggle('rotate-icon');
+                });
+            });
+
+            // Thumbnails xử lý click
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const carouselElement = document.getElementById('productCarousel');
+            const carousel = new bootstrap.Carousel(carouselElement);
+
+            thumbnails.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    // Remove active
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+
+                    // Scroll thumbnail vào khung
+                    thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+                    // Chuyển slide
+                    carousel.to(index);
+                });
+            });
+
+            // Khi carousel trượt → cập nhật active thumbnail
+            carouselElement.addEventListener('slid.bs.carousel', function (event) {
+                thumbnails.forEach(t => t.classList.remove('active'));
+
+                const activeThumb = thumbnails[event.to];
+                if (activeThumb) {
+                    activeThumb.classList.add('active');
+                    activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
